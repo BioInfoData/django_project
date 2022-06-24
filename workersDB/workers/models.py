@@ -19,7 +19,7 @@ class Department (models.Model):
         return self.department_id
 
 class Worker(models.Model):
-    employee_id = models.IntegerField(unique=True)
+    employee_id = models.CharField(max_length=100, unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email =  models.CharField(max_length=200)
@@ -28,7 +28,8 @@ class Worker(models.Model):
     job_id = models.CharField(max_length=100)
     salary = models.FloatField()
     commission_pct =  models.FloatField()
-    manager_id = models.IntegerField()
+    manager_id = models.ForeignKey('self', blank=True, null=True, default=0, on_delete=models.CASCADE)
+    #manager_id = models.CharField(max_length=100)
     department_id = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     slug = models.SlugField(unique=True, allow_unicode=True, blank=True)
@@ -39,4 +40,4 @@ class Worker(models.Model):
         return super(Worker, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.first_name +"." + self.last_name
+        return self.employee_id
