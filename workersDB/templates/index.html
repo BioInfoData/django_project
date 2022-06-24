@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="workers">
+    <h1>List of workers</h1>
+    {%for worker in workers %}
+    <div class="worker">
+        <a href ="{% url 'detail' slug=worker.slug %}">
+            {{worker.first_name}} {{worker.last_name}}
+        </a>
+    </div>
+    {%endfor%}
+</div>
+</body>
+</html>

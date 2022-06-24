@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>{{worker.first_name}} {{worker.last_name}}</p>
+    <p>
+        Department: <a href ="{% url 'dep_detail' slug=worker.department_id.slug %}">
+            {{worker.department_id}}</a>
+    </p>
+    <p>Job ID: {{worker.job_id}}</p>
+
+</body>
+</html>

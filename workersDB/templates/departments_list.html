@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="departments">
+    <h1>List of departments</h1>
+    {%for department in departments %}
+    <div class="department">
+        <a href ="{% url 'dep_detail' slug=department.slug %}">
+            {{department.department_id}}
+        </a>
+    </div>
+    {%endfor%}
+</div>
+</body>
+</html>

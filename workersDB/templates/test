@@ -1,0 +1,1 @@
+Department: <a href ="{% url 'dep_detail' slug=worker.department_id.slug %}">
