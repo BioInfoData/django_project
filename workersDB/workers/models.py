@@ -29,8 +29,8 @@ class Worker(models.Model):
     salary = models.FloatField()
     commission_pct =  models.FloatField()
     manager_id = models.ForeignKey('self', blank=True, null=True, default=0, on_delete=models.CASCADE)
-    #manager_id = models.CharField(max_length=100)
     department_id = models.ForeignKey(Department, on_delete=models.CASCADE)
+    thumb = models.ImageField(blank=True)
 
     slug = models.SlugField(unique=True, allow_unicode=True, blank=True)
 

@@ -9,9 +9,17 @@
     <h1>List of workers</h1>
     {%for worker in workers %}
     <div class="worker">
-        <a href ="{% url 'detail' slug=worker.slug %}">
+           <a href ="{% url 'detail' slug=worker.slug %}">
+                <img src="{{worker.thumb.url}}"
+                width="200"
+                height="250">
+            </a>
+        <p>
+            <a href ="{% url 'detail' slug=worker.slug %}">
             {{worker.first_name}} {{worker.last_name}}
-        </a>
+            </a>
+        </p>
+        <p> {{worker.job_id}} </p>
     </div>
     {%endfor%}
 </div>

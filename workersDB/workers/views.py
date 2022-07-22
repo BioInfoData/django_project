@@ -1,12 +1,6 @@
 from django.shortcuts import render
 from .models import Worker, Department
-from .serializers import WorkerSerializer
-from rest_framework import viewsets, permissions
 
-class WorkerView(viewsets.ModelViewSet):
-    queryset = Worker.objects.all()
-    serializer_class = WorkerSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly)
 
 def WorkerViewHtml(request):
     workers = Worker.objects.all()

@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+     <img src="{{worker.thumb.url}}"
+                width="200"
+                height="250">
     <p>{{worker.first_name}} {{worker.last_name}}</p>
     <p>
         Department: <a href ="{% url 'dep_detail' slug=worker.department_id.slug %}">
