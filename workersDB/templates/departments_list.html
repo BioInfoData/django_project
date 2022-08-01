@@ -1,19 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_layout.html' %}
+{% block content %}
+
+<h1>List of departments</h1>
+
 <div class="departments">
-    <h1>List of departments</h1>
+
     {%for department in departments %}
     <div class="department">
         <a href ="{% url 'dep_detail' slug=department.slug %}">
+                <img src="{{department.thumb.url}}"
+                width="400"
+                height="250">
+            </a>
+        <p>
+            <a href ="{% url 'dep_detail' slug=department.slug %}">
             {{department.department_id}}
         </a>
+        </p>
+
     </div>
     {%endfor%}
 </div>
-</body>
-</html>
+
+{% endblock %}

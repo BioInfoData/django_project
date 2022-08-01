@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_layout.html' %}
+{% block content %}
+
+<h1>Our Team</h1>
+
 <div class="workers">
-    <h1>List of workers</h1>
     {%for worker in workers %}
     <div class="worker">
            <a href ="{% url 'detail' slug=worker.slug %}">
                 <img src="{{worker.thumb.url}}"
                 width="200"
-                height="250">
+                height="300">
             </a>
         <p>
             <a href ="{% url 'detail' slug=worker.slug %}">
@@ -23,5 +20,5 @@
     </div>
     {%endfor%}
 </div>
-</body>
-</html>
+
+{% endblock %}

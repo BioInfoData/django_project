@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_layout.html' %}
+{% block content %}
+
     <h1>{{department.department_id}}</h1>
     <p>{{department.description}}</p>
-</body>
-</html>
+    <p><img src="{{department.thumb.url}}"
+                width="600"
+                height="400">
+    </p>
+
+{% endblock %}

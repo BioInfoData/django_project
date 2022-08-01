@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-     <img src="{{worker.thumb.url}}"
-                width="200"
-                height="250">
-    <p>{{worker.first_name}} {{worker.last_name}}</p>
+{% extends 'base_layout.html' %}
+{% block content %}
+
+
+    <h1>{{worker.first_name}} {{worker.last_name}}</h1>
+
+    <p><img src="{{worker.thumb.url}}"
+                width="300"
+                height="450"></p>
     <p>
         Department: <a href ="{% url 'dep_detail' slug=worker.department_id.slug %}">
             {{worker.department_id}}</a>
     </p>
     <p>Job ID: {{worker.job_id}}</p>
+    <p>Email: {{worker.email}}</p>
 
-</body>
-</html>
+
+{% endblock %}

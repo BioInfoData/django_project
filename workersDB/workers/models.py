@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 class Department (models.Model):
     department_id = models.CharField(max_length=100, unique=True)
     description = models.TextField(default="")
+    thumb = models.ImageField(blank=True)
     slug = models.SlugField(unique=True, allow_unicode=True, blank=True)
 
     def save(self, *args, **kwargs):
