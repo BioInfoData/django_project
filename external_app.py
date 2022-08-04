@@ -14,12 +14,14 @@ def get_data(url):
 
 def get_low_salary_workers(df):
     mean_salary = df['salary'].mean()
+    print(df[['employee_id', 'salary']])
+    print("Mean salary: ", round(mean_salary))
     today = datetime.datetime.now()
     df['heir_date'] = pd.to_datetime(df['heir_date'])
     delta = today - df['heir_date']
     df['years_work'] = delta.map(lambda x : round(x.days/365,2))
     low_salary = df.loc[
-              (df['years_work'] > 0.00001) &
+              (df['years_work'] > 1) &
               (df['salary'] < mean_salary)]
     if low_salary.shape[0] == 0:
         print("No worker found")
